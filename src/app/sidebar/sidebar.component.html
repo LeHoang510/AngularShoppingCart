@@ -1,0 +1,37 @@
+<div class="cart">
+  <h1 class="basket">Basket</h1>
+  <div class="calculator">
+    <div class="cal-title">
+      <h5 class="title-item">Item</h5>
+      <h5 class="title-price">Price</h5>
+      <h5 class="title-quantity">Quantity</h5>
+    </div>
+    <div class="items">
+      <div *ngFor="let cartItem of cartItems">
+        <div class="item">
+          <div class="item-name">{{cartItem.item.title}}</div>
+          <div class="item-price">{{cartItem.item.price}}$</div>
+          <div class="item-quantity">
+            <div class="btn-box">
+              <button type="button" class="dec-btn" (click)="decQte(cartItem)">-</button>
+              <input type="text" name="qte" value="{{cartItem.qte}}" class="box" (keyup)="inputQte($event, cartItem)">
+              <button type="button" class="inc-btn" (click)="incQte(cartItem)">+</button>
+            </div>
+            <button type="button" class="btn btn-danger btn-sm remove" id="${itemCart.id}" style="height: 30px; width: 30px" (click)="remove(cartItem)">X</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="total">
+      <hr>
+      <h2 class="total-info">Total: <span class="sum">{{sum}}$</span></h2>
+    </div>
+  </div>
+  <div class="decision">
+    <button type="button" class="btn btn-primary buy" (click)="buy()"><i class="fas fa-shopping-cart"> Buy</i></button>
+    <button type="button" class="btn btn-danger clear" (click)="clear()"><i class="fas fa-trash-alt"> Clear</i></button>
+  </div>
+</div>
+
+
+

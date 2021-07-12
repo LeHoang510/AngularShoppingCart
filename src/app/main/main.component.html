@@ -1,0 +1,35 @@
+<div class="container-fluid">
+
+  <div class="main-menu">
+    <h1 style="text-decoration: underline">MENU</h1>
+  </div>
+  <div class="category">
+    <button class="button-display" data-id="All" (click)="getItem()">All</button>
+    <button class="button-display" data-id="Breakfast" (click)="getCate('Breakfast')">Breakfast</button>
+    <button class="button-display" data-id="Lunch" (click)="getCate('Lunch')">Lunch</button>
+    <button class="button-display" data-id="Snack" (click)="getCate('Snack')">Snack</button>
+    <button class="button-display" data-id="Dinner" (click)="getCate('Dinner')">Dinner</button>
+    <button class="button-display" data-id="Drink" (click)="getCate('Drink')">Drink</button>
+  </div>
+
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 d-flex px-2 overflow-hidden ">
+    <div *ngFor="let item of items">
+      <div class="col-10 mt-5">
+        <div class="card border-5 border-primary">
+          <img src="{{item.img}}" class="card-img-top" alt="{{item.title}}">
+          <div class="card-body ">
+            <div class="d-flex justify-content-between">
+              <h2 class="card-title ">{{item.title}}</h2>
+              <button type="button" class="btn btn-outline-primary" (click)="addItem(item)">Add to cart</button>
+            </div>
+            <p class="card-text ">{{item.desc}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+
